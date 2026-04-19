@@ -198,7 +198,7 @@ export default function Home() {
 
         {/* Footer */}
         <p className="text-center text-stone-300 text-xs mt-14 font-medium">
-          Powered by Claude AI · Artist DNA Content Engine MVP
+          Powered by Claude AI · Artist DNA Content Engine MVP · Built by Rachel Yaron
         </p>
       </main>
     </div>
