@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sudo chmod:*)",
+      "Bash(npx create-next-app@latest /Users/rachelyaron/artist-dna --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes)",
+      "Bash(rm -rf /Users/rachelyaron/.npm/_cacache/content-v2/sha512/69/7d)",
+      "Bash(npx --yes create-next-app@latest /Users/rachelyaron/artist-dna --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes)",
+      "Bash(npm install:*)",
+      "Bash(npm cache:*)",
+      "Bash(npm run:*)",
+      "Bash(curl:*)",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}
