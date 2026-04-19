@@ -21,9 +21,9 @@ export default function CaseStudyBanner({ onLoad }: Props) {
           🗺️
         </div>
         <div>
-          <p className="text-sm font-semibold text-stone-700">Case Study: The Lighthouse</p>
+          <p className="text-sm font-semibold text-stone-700">Demo: "New Chapter" Single Launch</p>
           <p className="text-xs text-stone-400 mt-0.5">
-            A lonely girl at sea finds a lighthouse — dreamy indie folk single launch
+            Pop artist · empowerment anthem · targeting women 18–30
           </p>
         </div>
       </div>

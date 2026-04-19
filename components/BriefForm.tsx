@@ -7,6 +7,7 @@ export interface BriefValues {
   targetAudience: string;
   vibe: string;
   language: Language;
+  includeHashtags: boolean;
 }
 
 interface Props {
@@ -92,6 +93,31 @@ export default function BriefForm({ values, onChange }: Props) {
             </button>
           ))}
         </div>
+      </div>
+
+      {/* Hashtags toggle */}
+      <div>
+        <label className="flex items-center gap-3 cursor-pointer group w-fit">
+          <div className="relative">
+            <input
+              type="checkbox"
+              className="sr-only"
+              checked={values.includeHashtags}
+              onChange={(e) => onChange({ ...values, includeHashtags: e.target.checked })}
+            />
+            <div
+              className="w-10 h-6 rounded-full transition-all duration-200"
+              style={{ background: values.includeHashtags ? 'linear-gradient(135deg, #FF6B5B, #F5A623)' : '#E7E5E4' }}
+            />
+            <div
+              className="absolute top-1 w-4 h-4 bg-white rounded-full shadow transition-all duration-200"
+              style={{ left: values.includeHashtags ? '22px' : '4px' }}
+            />
+          </div>
+          <span className="text-sm font-medium text-stone-600 group-hover:text-stone-800 transition-colors select-none">
+            Include hashtags
+          </span>
+        </label>
       </div>
     </div>
   );

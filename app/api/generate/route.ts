@@ -13,7 +13,7 @@ function getSupabase() {
 
 export async function POST(req: NextRequest) {
   try {
-    const { brandDNA, objective, targetAudience, vibe, language } = await req.json();
+    const { brandDNA, objective, targetAudience, vibe, language, includeHashtags } = await req.json();
 
     if (!brandDNA || !objective) {
       return NextResponse.json({ error: 'brandDNA and objective are required' }, { status: 400 });
@@ -45,7 +45,7 @@ ${langInstruction}
 
 Generate a response in the following EXACT JSON format (no markdown, no extra text — raw JSON only):
 {
-  "post": "<The social media caption/post, 3-5 sentences, emotionally resonant, with 3-5 relevant hashtags at the end>",
+  "post": "<The social media caption/post, 3-5 sentences, emotionally resonant${includeHashtags !== false ? ', with 3-5 relevant hashtags at the end' : '. Do NOT include any hashtags'}>",
   "imagePrompt": "<A detailed Midjourney image prompt that visually captures the mood of this content, ~50 words, starting with a subject description>",
   "brandAlignment": <integer from 1 to 100 representing how well this content aligns with the Brand DNA>,
   "alignmentReason": "<1-2 sentences explaining why this score was given>"

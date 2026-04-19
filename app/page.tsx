@@ -12,6 +12,7 @@ const INITIAL_BRIEF: BriefValues = {
   targetAudience: '',
   vibe: '',
   language: 'English',
+  includeHashtags: true,
 };
 
 export default function Home() {
@@ -28,6 +29,7 @@ export default function Home() {
       targetAudience: CASE_STUDY.targetAudience,
       vibe: CASE_STUDY.vibe,
       language: CASE_STUDY.language as BriefValues['language'],
+      includeHashtags: true,
     });
     setResult(null);
     setError('');
@@ -189,7 +191,7 @@ export default function Home() {
             )}
 
             {result && !loading && (
-              <OutputCard result={result} language={brief.language} />
+              <OutputCard result={result} language={brief.language} objective={brief.objective} vibe={brief.vibe} />
             )}
           </div>
         </div>

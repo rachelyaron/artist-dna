@@ -1,14 +1,10 @@
 export const CASE_STUDY = {
-  brandDNA: `She stands at the edge of the boat, the salt water is cold and endless beneath her.
-She has been alone at sea for weeks, maybe longer — time blurs when there's no one to measure it against.
-The lighthouse appears on the 27th night, blinking through fog, neither welcoming nor warning.
-She rows toward it anyway. Not because she believes it will save her.
-Because standing still in dark water is no longer an option.
-The lighthouse does not open its door. But its light — ancient, mechanical, indifferent —
-teaches her something silence never could: that guidance doesn't always look like warmth.
-Sometimes it looks like a fixed point. A thing that stays.`,
+  brandDNA: `I make music for women who are done playing small.
+My sound is bold, warm, and unapologetically joyful — like your hype girl and your diary rolled into one.
+"New Chapter" is about waking up one morning and deciding to choose yourself.
+No drama, no looking back. Just you, your favorite playlist, and the feeling that anything is possible.`,
   objective: 'Single Release',
-  targetAudience: 'Gen Z fans of Indie Folk & Alternative',
-  vibe: 'Dreamy, Melancholic, Cinematic',
+  targetAudience: 'Women aged 18–30, fans of pop & empowerment anthems',
+  vibe: 'Upbeat, Empowering, Feel-Good',
   language: 'English',
 };
