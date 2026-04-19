@@ -25,90 +25,103 @@ export default function OutputCard({ result, language }: Props) {
   };
 
   const score = result.brandAlignment;
-  const scoreColor =
-    score >= 80 ? '#a78bfa' : score >= 60 ? '#fb923c' : '#f87171';
-  const scoreLabel =
-    score >= 80 ? 'Highly Aligned' : score >= 60 ? 'Moderately Aligned' : 'Needs Refinement';
-
-  const degrees = (score / 100) * 360;
+  const scoreColor   = score >= 80 ? '#9B8EC4' : score >= 60 ? '#F5A623' : '#FF6B5B';
+  const scoreBg      = score >= 80 ? '#F5F3FF' : score >= 60 ? '#FFFBEB' : '#FFF5F3';
+  const scoreLabel   = score >= 80 ? 'Highly Aligned' : score >= 60 ? 'Moderately Aligned' : 'Needs Refinement';
 
   return (
     <div className="animate-fade-in-up space-y-4">
-      {/* Post Content */}
-      <div className="glass-card rounded-2xl p-6">
+
+      {/* Generated Post */}
+      <div className="surface rounded-2xl p-6">
         <div className="flex items-center justify-between mb-4">
-          <p className="text-xs font-semibold uppercase tracking-widest text-white/40">Generated Post</p>
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full" style={{ background: '#FF6B5B' }} />
+            <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-stone-400">Generated Post</p>
+          </div>
           <button
             onClick={() => copy(result.post, setCopiedPost)}
-            className="text-xs px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-white/60 hover:text-white transition-colors cursor-pointer"
+            className="text-xs px-3 py-1.5 rounded-lg border border-stone-200 text-stone-500 hover:text-stone-800 hover:border-stone-300 hover:bg-stone-50 transition-all cursor-pointer font-medium"
           >
-            {copiedPost ? '✓ Copied' : 'Copy'}
+            {copiedPost ? '✓ Copied!' : 'Copy'}
           </button>
         </div>
         <p
-          className={`text-sm leading-relaxed text-white/90 whitespace-pre-line ${language === 'Hebrew' ? 'text-right' : ''}`}
+          className={`text-sm leading-relaxed text-stone-700 whitespace-pre-line ${language === 'Hebrew' ? 'text-right' : ''}`}
           dir={language === 'Hebrew' ? 'rtl' : 'ltr'}
         >
           {result.post}
         </p>
       </div>
 
-      {/* Image Prompt */}
-      <div className="glass-card rounded-2xl p-6">
+      {/* Midjourney Prompt */}
+      <div className="surface rounded-2xl p-6">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
-            <span className="text-base">✦</span>
-            <p className="text-xs font-semibold uppercase tracking-widest text-white/40">Midjourney Prompt</p>
+            <span className="w-2 h-2 rounded-full" style={{ background: '#F5A623' }} />
+            <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-stone-400">Midjourney Prompt</p>
           </div>
           <button
             onClick={() => copy(result.imagePrompt, setCopiedPrompt)}
-            className="text-xs px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-white/60 hover:text-white transition-colors cursor-pointer"
+            className="text-xs px-3 py-1.5 rounded-lg border border-stone-200 text-stone-500 hover:text-stone-800 hover:border-stone-300 hover:bg-stone-50 transition-all cursor-pointer font-medium"
           >
-            {copiedPrompt ? '✓ Copied' : 'Copy'}
+            {copiedPrompt ? '✓ Copied!' : 'Copy'}
           </button>
         </div>
-        <p className="text-sm text-violet-300/80 italic leading-relaxed font-mono">
-          /imagine {result.imagePrompt}
-        </p>
+        <div className="surface-inner rounded-xl p-4">
+          <p className="text-sm leading-relaxed font-mono" style={{ color: '#9B8EC4' }}>
+            <span className="text-stone-400 font-sans font-medium">/imagine</span>{' '}
+            {result.imagePrompt}
+          </p>
+        </div>
       </div>
 
       {/* Brand Alignment Score */}
-      <div className="glass-card rounded-2xl p-6">
-        <p className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-5">Brand Alignment</p>
-        <div className="flex items-center gap-6">
+      <div className="surface rounded-2xl p-6">
+        <div className="flex items-center gap-2 mb-5">
+          <span className="w-2 h-2 rounded-full" style={{ background: scoreColor }} />
+          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-stone-400">Brand Alignment</p>
+        </div>
+
+        <div className="flex items-center gap-5">
           {/* Score Ring */}
           <div className="relative shrink-0 w-20 h-20">
             <svg viewBox="0 0 80 80" className="w-full h-full -rotate-90">
-              <circle cx="40" cy="40" r="34" fill="none" stroke="rgba(255,255,255,0.07)" strokeWidth="8" />
+              <circle cx="40" cy="40" r="34" fill="none" stroke="#F5F0EC" strokeWidth="7" />
               <circle
                 cx="40" cy="40" r="34"
                 fill="none"
                 stroke={scoreColor}
-                strokeWidth="8"
+                strokeWidth="7"
                 strokeLinecap="round"
                 strokeDasharray={`${(score / 100) * 213.6} 213.6`}
                 className="transition-all duration-1000"
               />
             </svg>
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-xl font-bold text-white">{score}</span>
+              <span className="text-xl font-black text-stone-800">{score}</span>
             </div>
           </div>
 
-          {/* Score Details */}
-          <div className="flex-1">
-            <p className="text-base font-semibold" style={{ color: scoreColor }}>{scoreLabel}</p>
-            <p className="text-sm text-white/50 mt-1.5 leading-relaxed">{result.alignmentReason}</p>
+          {/* Score label + reason */}
+          <div className="flex-1 min-w-0">
+            <span
+              className="inline-block text-xs font-bold px-3 py-1 rounded-full mb-2"
+              style={{ background: scoreBg, color: scoreColor }}
+            >
+              {scoreLabel}
+            </span>
+            <p className="text-sm text-stone-500 leading-relaxed">{result.alignmentReason}</p>
           </div>
         </div>
 
-        {/* Score bar */}
-        <div className="mt-5 h-1.5 bg-white/5 rounded-full overflow-hidden">
+        {/* Progress bar */}
+        <div className="mt-5 h-1.5 bg-stone-100 rounded-full overflow-hidden">
           <div
             className="h-full rounded-full transition-all duration-1000"
             style={{
               width: `${score}%`,
-              background: `linear-gradient(90deg, #a78bfa, ${scoreColor})`,
+              background: `linear-gradient(90deg, #FF6B5B, ${scoreColor})`,
             }}
           />
         </div>

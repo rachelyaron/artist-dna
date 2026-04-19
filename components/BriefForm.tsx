@@ -16,16 +16,16 @@ interface Props {
 
 const OBJECTIVES = [
   { value: '', label: 'Select objective…' },
-  { value: 'Album Launch',    label: '&#x1F4BF; Album Launch' },
-  { value: 'Single Release',  label: '&#x1F3B5; Single Release' },
-  { value: 'Concert Promo',   label: '&#x1F3A4; Concert Promo' },
-  { value: 'Merch Drop',      label: '&#x1F455; Merch Drop' },
-  { value: 'Behind the Scenes', label: '&#x1F39E; Behind the Scenes' },
+  { value: 'Album Launch',       label: '💿 Album Launch' },
+  { value: 'Single Release',     label: '🎵 Single Release' },
+  { value: 'Concert Promo',      label: '🎤 Concert Promo' },
+  { value: 'Merch Drop',         label: '👕 Merch Drop' },
+  { value: 'Behind the Scenes',  label: '🎞️ Behind the Scenes' },
 ];
 
-const labelClass = 'block text-xs font-semibold uppercase tracking-widest text-white/40 mb-2';
+const labelClass = 'block text-[11px] font-semibold uppercase tracking-[0.12em] text-stone-400 mb-2';
 const inputClass =
-  'w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/20 focus:outline-none focus:border-violet-500/60 focus:bg-white/8 transition-colors';
+  'w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm text-stone-800 placeholder-stone-300 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-100 transition-all';
 
 export default function BriefForm({ values, onChange }: Props) {
   const set = <K extends keyof BriefValues>(key: K) =>
@@ -39,7 +39,7 @@ export default function BriefForm({ values, onChange }: Props) {
         <label className={labelClass}>Objective</label>
         <select value={values.objective} onChange={set('objective')} className={inputClass + ' cursor-pointer'}>
           {OBJECTIVES.map((o) => (
-            <option key={o.value} value={o.value} dangerouslySetInnerHTML={{ __html: o.label }} />
+            <option key={o.value} value={o.value}>{o.label}</option>
           ))}
         </select>
       </div>
@@ -71,17 +71,22 @@ export default function BriefForm({ values, onChange }: Props) {
       {/* Language Toggle */}
       <div>
         <label className={labelClass}>Language</label>
-        <div className="flex rounded-xl overflow-hidden border border-white/10 w-fit">
+        <div className="flex rounded-xl overflow-hidden border border-stone-200 w-fit bg-stone-50">
           {(['English', 'Hebrew'] as Language[]).map((lang) => (
             <button
               key={lang}
               type="button"
               onClick={() => onChange({ ...values, language: lang })}
-              className={`px-6 py-2.5 text-sm font-semibold transition-colors cursor-pointer ${
+              className={`px-6 py-2.5 text-sm font-semibold transition-all cursor-pointer ${
                 values.language === lang
-                  ? 'bg-violet-600 text-white'
-                  : 'bg-white/5 text-white/40 hover:text-white/70'
+                  ? 'text-white shadow-sm'
+                  : 'text-stone-400 hover:text-stone-600'
               }`}
+              style={
+                values.language === lang
+                  ? { background: 'linear-gradient(135deg, #9B8EC4, #7C6FAF)' }
+                  : {}
+              }
             >
               {lang === 'Hebrew' ? '🇮🇱 עברית' : '🇺🇸 English'}
             </button>

@@ -1,9 +1,17 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #0d0d1a;
-  --color-foreground: #f0f0f5;
+  --color-background: #FDFAF6;
+  --color-foreground: #1C1917;
   --font-sans: 'Inter', system-ui, sans-serif;
+
+  /* Brand palette */
+  --color-coral:   #FF6B5B;
+  --color-gold:    #F5A623;
+  --color-lavender: #9B8EC4;
+  --color-cream:   #FDFAF6;
+  --color-stone:   #78716C;
+  --color-ink:     #1C1917;
 }
 
 body {
@@ -13,35 +21,47 @@ body {
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 8px rgba(139, 92, 246, 0.4); }
-  50%       { box-shadow: 0 0 24px rgba(139, 92, 246, 0.8); }
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
 }
 
-.animate-fade-in-up { animation: fadeInUp 0.5s ease forwards; }
-.animate-pulse-glow  { animation: pulse-glow 2s ease-in-out infinite; }
+.animate-fade-in-up { animation: fadeInUp 0.45s ease forwards; }
 
 .gradient-text {
-  background: linear-gradient(135deg, #a78bfa 0%, #f472b6 50%, #fb923c 100%);
+  background: linear-gradient(135deg, #FF6B5B 0%, #F5A623 45%, #9B8EC4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.glass-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(12px);
+.btn-generate {
+  background: linear-gradient(135deg, #FF6B5B 0%, #F5A623 55%, #9B8EC4 100%);
+  background-size: 200% auto;
+  transition: background-position 0.4s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn-generate:hover:not(:disabled) {
+  background-position: right center;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 32px rgba(255, 107, 91, 0.35);
+}
+.btn-generate:active:not(:disabled) {
+  transform: translateY(0);
 }
 
-.score-ring {
-  background: conic-gradient(
-    #a78bfa 0deg,
-    #f472b6 calc(var(--score) * 3.6deg),
-    rgba(255,255,255,0.08) calc(var(--score) * 3.6deg)
-  );
+/* Light card surface */
+.surface {
+  background: #FFFFFF;
+  border: 1px solid rgba(28, 25, 23, 0.07);
+  box-shadow: 0 1px 3px rgba(28,25,23,0.06), 0 4px 16px rgba(28,25,23,0.04);
+}
+
+/* Subtle inner card on cream bg */
+.surface-inner {
+  background: #FAF7F3;
+  border: 1px solid rgba(28,25,23,0.06);
 }
