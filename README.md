@@ -12,9 +12,25 @@
 
 ## Overview
 
-Most social media tools produce generic content. **Artist DNA Content Engine** is different — it starts with *your* creative DNA (lyrics, a manifesto, a story) and generates content that sounds unmistakably like you.
+### The Problem
 
-Built as an MVP for a Wix SPM presentation, this tool demonstrates how large language models can be grounded in a specific artist's voice to produce marketing content that actually resonates with fans.
+Independent musicians and emerging artists dedicate most of their energy to the craft — writing, recording, performing. Marketing is an afterthought, not because it doesn't matter, but because it's genuinely hard.
+
+Coming up with fresh, authentic social media content on a daily or weekly basis is mentally exhausting. Most artists default to the same patterns: a cropped album cover, a vague caption, a handful of generic hashtags. The result is content that doesn't reflect their true artistic voice — and fans can feel the disconnect.
+
+Existing AI writing tools make this worse, not better. They generate polished, professional copy that sounds like everyone else. An artist who spent three years crafting a raw, vulnerable sound deserves more than a caption that could belong to any brand.
+
+### The User
+
+**Independent and emerging artists** who are active on social media but struggle to maintain a consistent, authentic content presence without sacrificing time they need for their creative work.
+
+### The Solution
+
+**Artist DNA Content Engine** solves this by grounding AI generation in the artist's own creative material — their lyrics, stories, and artistic voice — rather than a generic brief. The result is content that sounds unmistakably like *them*.
+
+The artist pastes a piece of their creative DNA (lyrics, a story, a manifesto), defines a campaign goal, and receives a fully formed social post, a Midjourney image prompt for matching visuals, a platform recommendation based on their objective and vibe, and a Brand Alignment Score that measures how faithfully the output reflects their voice.
+
+This MVP demonstrates a core product hypothesis: that AI-generated marketing content becomes significantly more valuable — and significantly more adopted — when it is anchored in the user's own creative identity rather than produced from a blank slate.
 
 ---
 
@@ -27,6 +43,10 @@ Built as an MVP for a Wix SPM presentation, this tool demonstrates how large lan
 > 📸 _Output panel — Generated post, platform recommendations, Midjourney prompt, and Brand Alignment score_
 
 ![Output Panel](public/screenshot-output.png)
+
+> 📸 _My Studio — Coming Soon_
+
+![My Studio](public/screenshot_my_studio.png)
 
 ---
 
@@ -154,7 +174,7 @@ artist-dna/
 
 ## Roadmap
 
-- [ ] Save & revisit past generations (history view)
+- [ ] My Studio — Personal content history with user accounts
 - [ ] Multi-language support beyond Hebrew/English
 - [ ] Export to PDF / copy all outputs at once
 - [ ] A/B post variants — generate 2–3 options per brief
