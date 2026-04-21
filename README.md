@@ -22,11 +22,11 @@ Built as an MVP for a Wix SPM presentation, this tool demonstrates how large lan
 
 > 📸 _Input panel — Brand DNA + Campaign Brief_
 
-![Input Panel](https://placehold.co/900x500/FDFAF6/FF6B5B?text=Input+Panel+Screenshot)
+![Input Panel](public/screenshot-input.png)
 
 > 📸 _Output panel — Generated post, platform recommendations, Midjourney prompt, and Brand Alignment score_
 
-![Output Panel](https://placehold.co/900x500/FDFAF6/9B8EC4?text=Output+Panel+Screenshot)
+![Output Panel](public/screenshot-output.png)
 
 ---
 
