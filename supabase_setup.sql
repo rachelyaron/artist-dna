@@ -1,5 +1,7 @@
--- Run this in Supabase → SQL Editor
--- Creates the table that stores every generation
+-- ──────────────────────────────────────────────────────────────────
+-- Artist DNA Content Engine — Supabase setup
+-- Run this entire file in Supabase → SQL Editor → Run
+-- ──────────────────────────────────────────────────────────────────
 
 create table if not exists generations (
   id                uuid primary key default gen_random_uuid(),
@@ -19,13 +21,19 @@ create table if not exists generations (
   alignment_reason  text
 );
 
--- Optional: enable RLS and allow public inserts (adjust for your auth strategy)
+-- Index for fast date-sorted queries (used by My Studio tab)
+create index if not exists generations_created_at_idx
+  on generations (created_at desc);
+
+-- Row Level Security
 alter table generations enable row level security;
+
+-- Allow server-side inserts (via service_role key — bypasses RLS automatically)
+-- Allow browser reads via anon key
+create policy "Allow anonymous reads"
+  on generations for select
+  using (true);
 
 create policy "Allow anonymous inserts"
   on generations for insert
   with check (true);
-
-create policy "Allow reads for authenticated users"
-  on generations for select
-  using (true);
